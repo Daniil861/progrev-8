@@ -6,10 +6,10 @@ import { startData } from './startData.js';
 
 export function initStartData() {
 
-	if (!localStorage.getItem('money')) {
-		localStorage.setItem('money', startData.bank);
-	}
-	writeScore();
+	// if (!localStorage.getItem('money')) {
+	// 	localStorage.setItem('money', startData.bank);
+	// }
+	// writeScore();
 
 	// if (!localStorage.getItem('resource')) {
 	// 	localStorage.setItem('resource', 0);
@@ -17,19 +17,19 @@ export function initStartData() {
 	// writeResource();
 
 
-	if (!localStorage.getItem('current-bet')) {
-		localStorage.setItem('current-bet', startData.countBet);
-	}
-	writeBet();
+	// if (!localStorage.getItem('current-bet')) {
+	// 	localStorage.setItem('current-bet', startData.countBet);
+	// }
+	// writeBet();
 
 	// if (!localStorage.getItem('level')) {
 	// 	localStorage.setItem('level', 1);
 	// }
 
-	// if (!localStorage.getItem('opened-level')) {
-	// 	localStorage.setItem('opened-level', 1);
-	// }
-	// openNewLevel();
+	if (!localStorage.getItem('opened-level')) {
+		localStorage.setItem('opened-level', 1);
+	}
+	openNewLevel();
 }
 
 
@@ -60,7 +60,7 @@ export function writeBet() {
 }
 
 export function openNewLevel() {
-	const levelsBlocks = document.querySelectorAll('[data-level-button]');
+	const levelsBlocks = document.querySelectorAll('[data-level]');
 	const openedLevels = +localStorage.getItem('opened-level');
 	if (levelsBlocks.length) {
 		for (let i = 0; i < openedLevels; i++) {
@@ -70,7 +70,7 @@ export function openNewLevel() {
 }
 
 
-// initStartData();
+initStartData();
 
 
 //========================================================================================================================================================
@@ -349,6 +349,7 @@ export function getDataSecondColb(colb) {
 		drawColbsInner();
 		checkGameOver();
 
+
 		setTimeout(() => {
 			configGame.state = 1;
 		}, 0);
@@ -408,6 +409,13 @@ function checkGameOver() {
 		}
 	}
 }
+function increaseLevel() {
+	const openedLevel = +localStorage.getItem('opened-level');
+	if (openedLevel < 6 && openedLevel === configGame.level) {
+		localStorage.setItem('opened-level', openedLevel + 1);
+		openNewLevel();
+	}
+}
 
 function checkSameItemsArr(arr) {
 	if (arr.length === 4) {
@@ -430,6 +438,7 @@ function removeShowFirework() {
 }
 
 function quiteGame() {
+	increaseLevel();
 	setTimeout(() => {
 		document.querySelector('.wrapper').classList.remove('_game');
 		removeShowFirework();

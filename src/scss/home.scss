@@ -89,6 +89,11 @@
 		height: 83px;
 		border-radius: 50%;
 
+		&._disabled {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+
 		&[data-level="1"] {
 			top: -20px;
 			left: -30px;
