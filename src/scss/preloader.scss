@@ -1,0 +1,108 @@
+.preloader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+
+	width: 100%;
+	min-height: 100vh;
+
+	background-image: url("@img/other/bg.png");
+	background-position: center bottom;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	overflow: hidden;
+
+	transition: all 0.3s ease 0s;
+
+	&__block-acces {
+	}
+
+	&__acces {
+	}
+
+	&__button-box {
+		position: absolute;
+		z-index: 5;
+		bottom: 35px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	// .preloader__button
+
+	&__button {
+		width: 136.293px;
+		height: 45px;
+		border-radius: 50px;
+	}
+}
+
+.acces-preloader {
+	position: relative;
+	z-index: 4;
+
+	display: flex;
+	flex-direction: column;
+	max-height: 100vh;
+	max-width: 100vw;
+	padding-block: 20px 170px;
+	padding-inline: 10px;
+
+	overflow: auto;
+
+	&._hide {
+		display: none;
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+
+		row-gap: 15px;
+		color: #fff;
+	}
+
+	&__title {
+		text-align: center;
+		-webkit-text-stroke: 1px rgba(212, 61, 88, 1);
+		@media (min-width: 700px) and (min-height: 700px) {
+			font-size: 36px;
+		}
+	}
+
+	&__text-box {
+		display: flex;
+		flex-direction: column;
+
+		border-radius: 20px;
+		background: rgba(213, 235, 79, 0.36);
+		backdrop-filter: blur(10.5px);
+		padding: 8px;
+	}
+
+	// .acces-preloader__text
+
+	&__text {
+		padding-bottom: 12px;
+	}
+
+	&__link {
+		color: #ebff00;
+	}
+}
+
+.text-pre {
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 1.25;
+	color: #131313;
+	@media (min-width: 700px) and (min-height: 700px) {
+		font-size: 20px;
+	}
+
+	&__title {
+		text-transform: uppercase;
+	}
+}

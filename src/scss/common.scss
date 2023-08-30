@@ -1,0 +1,84 @@
+.button {
+	position: relative;
+	z-index: 1;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 335px;
+	height: 76px;
+
+	border-radius: 6.905px;
+	background: #323232;
+
+	user-select: none;
+
+	transition: all 0.3s ease 0s;
+
+	span {
+		position: relative;
+		color: #fff;
+	}
+
+	&:active {
+		transform: translateY(2px);
+	}
+
+	// &._hold {
+	// 	opacity: 0.5;
+	// 	pointer-events: none;
+	// }
+}
+
+.button-home {
+	width: 34px;
+	height: 26px;
+	background-image: url("@img/icons/arrow-left.svg");
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+
+	&:active {
+		transform: translateY(3px);
+	}
+}
+
+[type="button"] {
+	transition: all 0.3s ease 0s;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	&:active {
+		transform: translateY(3px);
+	}
+}
+
+//========================================================================================================================================================
+
+.score {
+	white-space: nowrap;
+	&._no-money {
+		animation: no-money 0.7s ease 2;
+	}
+	&._delete-money {
+		animation: delete-money 0.7s ease;
+	}
+	&._anim-add-money {
+		animation: add-money 0.5s ease 3;
+	}
+}
+
+.icon-game {
+	&._anim-icon-jump {
+		animation: jump_icon 5s ease;
+	}
+	&._anim-icon-scale {
+		animation: scale_icon 0.5s ease 2;
+	}
+	&._anim-icon-rotate {
+		animation: rotate_icon 1.5s ease-out 1;
+	}
+	&._anim-icon-rotate-2 {
+		animation: rotate_icon-2 1.5s ease 1;
+	}
+}
+//========================================================================================================================================================
